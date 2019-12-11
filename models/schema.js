@@ -49,10 +49,30 @@ const BuildingSchema = new Schema({
     phone: {
         type: Number
     }
-})
+});
+
+//schema for rooms
+const RoomSchema = new Schema({
+    roomNo: {
+        type: Number
+    },
+    buildingName: {
+        type: String
+    },
+    buildingId: {
+        type: Number
+    },
+    assets: [{
+        id: {
+            type: Number
+        }
+    }]
+});
 
 const Ninja = mongoose.model('ninja', NinjaSchema);
 const Building = mongoose.model('Building', BuildingSchema);
+const Room = mongoose.model('Room', RoomSchema)
 
 module.exports.Ninja = Ninja;
 module.exports.Building = Building;
+module.exports.Room = Room;

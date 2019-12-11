@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Sno.</th>
+      <th>Name</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Phone</th>
+      <th>Rooms</th>
+      <th>Assets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let building of buildings; let i=index">
+      <td>{{i + (indexStart)}}</td>
+      <td>{{building.name}}</td>
+      <td>{{building.state}}</td>
+      <td>{{building.city}}</td>
+      <td>{{building.phone}}</td>
+      <td>{{building.rooms}}</td>
+      <td>{{building.assets}}</td>
+    </tr>
+  </tbody>
+</table>
