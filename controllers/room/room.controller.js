@@ -33,10 +33,18 @@ module.exports = {
     },
     deleteRoom: (req, res, next) => {
         Console / log("Api delete room")
-        Room.findOneAndRemove({ "_id": req.body.id }).then((data) => {
+        Rooms.findOneAndRemove({ "_id": req.body.id }).then((data) => {
             res.status(200).send({ status: "success", msg: data });
         }).catch((e) => {
             next.status(200).send(400, e.message);
+        });
+    },
+    getroomsOfaBuilding: (req, res, next) => {
+        // console.log("getroomsOfaBuilding", (req.params.id))
+        Rooms.find({ buildingId: req.params.id }).then((data) => {
+            res.status(200).send({ status: "success", msg: data });
+        }).catch((e) => {
+            next(new Error(400, e.message));
         });
     }
 }

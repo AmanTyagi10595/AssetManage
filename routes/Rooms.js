@@ -4,8 +4,8 @@ const roomController = require("../controllers/room/room.controller");
 //Get all Rooms
 router.get('/', roomController.getRooms);
 
-//Get single room
-router.get('/:id', roomController.getSingleRoom);
+//Get all rooms of a buildin with building_id =id
+router.get('/:id', roomController.getroomsOfaBuilding);  // here id is of building
 
 //add room
 router.post('/add', roomController.addRooms);

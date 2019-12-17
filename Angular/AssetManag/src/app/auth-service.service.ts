@@ -13,5 +13,15 @@ export class AuthServiceService {
     return this.http.get("http://localhost:4000/building");
   }
 
-  getRooms(buildingId) {}
+  getSingleBuilding(buildngId) {
+    return this.http.get(`http://localhost:4000/building/${buildngId}`);
+  }
+
+  getRooms(buildingId) {
+    return this.http.get(`http://localhost:4000/room/${buildingId}`);
+  }
+
+  getAssets(roomID) {
+    return this.http.get(`http://localhost:4000/room/${roomID}`);
+  }
 }

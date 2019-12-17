@@ -1,17 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// create geolocation Schema
-const GeoSchema = new Schema({
-    type: {
-        type: String,
-        default: 'Point'
-    },
-    coordinates: {
-        type: [Number],
-        index: '2dsphere'
-    }
-});
+
 
 // create ninja Schema & model
 const NinjaSchema = new Schema({
@@ -60,7 +50,7 @@ const RoomSchema = new Schema({
         type: String
     },
     buildingId: {
-        type: Number
+        type: String
     },
     assets: [{
         id: {
@@ -69,10 +59,74 @@ const RoomSchema = new Schema({
     }]
 });
 
+//Schema for Assets
+const AssetsSchema = new Schema({
+    assetName: {
+        type: String
+    },
+    inUse: {
+        type: Boolean
+    },
+    building: [{
+        buildingId: String,
+        buildingName: String
+    }],
+    room: [{
+        roomId: String,
+        roomNname: String
+    }],
+    serialNo: {
+        type: String
+    },
+    modelNo: {
+        type: String
+    },
+    category: {
+        type: String
+    },
+    descrip: {
+        type: String
+    },
+    assignedTo: [{
+        userId: String,
+        assignedDate: String
+    }],
+    workingStatus: {
+        type: Boolean
+    },
+    purchaseDate: {
+        type: Date
+    },
+    warrentyExpire: {
+        type: Date
+    },
+    serviceRequired: {
+        type: Boolean
+    },
+    warrentyServiceCount: {
+        type: Number
+    },
+    servicesGivenCount: {
+        type: Number
+    },
+    outForService: {
+        type: Boolean
+    },
+    serviceCenter: [{
+        name: String,
+        receiveDate: Date,
+        toDeliverDate: Date,
+        deliveredDate: Date
+    }],
+});
+
+
 const Ninja = mongoose.model('ninja', NinjaSchema);
 const Building = mongoose.model('Building', BuildingSchema);
-const Room = mongoose.model('Room', RoomSchema)
+const Room = mongoose.model('Room', RoomSchema);
+const Assets = mongoose.model('Assets', AssetsSchema);
 
 module.exports.Ninja = Ninja;
 module.exports.Building = Building;
 module.exports.Room = Room;
+module.exports.Assets = Assets;

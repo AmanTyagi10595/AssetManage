@@ -19,6 +19,7 @@ module.exports = {
     },
     // Get single building
     getSingleBuilding: async (req, res, next) => {
+
         Building.findById(req.params.id).then((data) => {
             res.status(200).send({ status: "success", msg: data });
         }).catch((e) => {
