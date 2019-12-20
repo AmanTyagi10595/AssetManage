@@ -16,5 +16,10 @@ module.exports = {
 
     getAssetsOfRoom: (req, res, next) => {
         console.log("getAsset Api running now");
+        Assets.find().then((data) => {
+            res.status(200).send({ status: "success", msg: data });
+        }).catch(err => {
+            next(new Error(400, e.message));
+        })
     }
 }

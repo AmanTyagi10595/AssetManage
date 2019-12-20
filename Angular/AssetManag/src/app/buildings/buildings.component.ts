@@ -19,7 +19,9 @@ export class BuildingsComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id");
+    console.log(this.id);
     this.service.getSingleBuilding(this.id).subscribe(data => {
+      // console.log(data);
       this.buildingInfo = data["msg"];
     });
     this.roomsOfOneBuilding(this.id);

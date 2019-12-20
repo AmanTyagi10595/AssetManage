@@ -22,6 +22,6 @@ export class AuthServiceService {
   }
 
   getAssets(roomID) {
-    return this.http.get(`http://localhost:4000/room/${roomID}`);
+    return this.http.get(`http://localhost:4000/asset/assetsOfRoom/${roomID}`);
   }
 }

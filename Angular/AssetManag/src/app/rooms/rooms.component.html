@@ -1,1 +1,22 @@
-<p>rooms works!</p>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Sno.</th>
+      <th>_ID</th>
+      <th>AssetName</th>
+      <th>AssignedTo</th>
+      <th>Address</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let asset of assets; let i=index" [routerLink]='["/assetsDetail"]'>
+      <td>{{i + (indexStart)}}</td>
+      <td>{{asset._id.substr(asset._id.length - 6)  }}</td>
+      <td>{{asset.assetName}}</td>
+      <td>{{asset.assignedTo[0]?.userId}}</td>
+      <td>{{asset.building[0]?.buildingName}}_{{asset.room[0]?.roomNname}}</td>
+      <td *ngIf="asset.inUse">In Use</td>
+    </tr>
+  </tbody>
+</table>

@@ -9,7 +9,10 @@ import { AuthServiceService } from "../auth-service.service";
 export class DashboardComponent implements OnInit {
   buildings: any;
   indexStart = 1;
-  constructor(private service: AuthServiceService) {}
+  show;
+  constructor(private service: AuthServiceService) {
+    this.show = false;
+  }
 
   ngOnInit() {
     this.getBuildings();
@@ -17,7 +20,14 @@ export class DashboardComponent implements OnInit {
   getBuildings() {
     this.service.getBuildings().subscribe(data => {
       this.buildings = data;
-      console.log(this.buildings[0]);
     });
+  }
+
+  openModal() {
+    this.show = !this.show;
+  }
+
+  onToggleClicked(e) {
+    this.show = e;
   }
 }

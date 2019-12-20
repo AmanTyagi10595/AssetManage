@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const assetControler = require('../controllers/assets/asset.controller');
 
-//Get all Buildings
+// add assets
 router.post('/add', assetControler.addAsset);
 
-// Get single building
-// router.get('/:id', buildingController.getSingleBuilding);
+// Get all assets of single building
+router.get('/assetsOfRoom/:id', assetControler.getAssetsOfRoom);
 
 // Add Building
 // router.post('/add', buildingController.addBuilding);

@@ -9,6 +9,8 @@ import { AuthServiceService } from "../auth-service.service";
 })
 export class RoomsComponent implements OnInit {
   roomID;
+  assets: any;
+  indexStart = 1;
   constructor(
     private route: ActivatedRoute,
     private service: AuthServiceService
@@ -20,8 +22,9 @@ export class RoomsComponent implements OnInit {
   }
 
   assetsOfRoom(roomId) {
-    this.service.getAssets.subscribe(data => {
-      console.log(data, "guihihihuuhh");
+    this.service.getAssets(roomId).subscribe(result => {
+      this.assets = result["msg"];
+      console.log("room component.ts2", this.assets);
     });
   }
 }

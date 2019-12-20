@@ -12,11 +12,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let room of rooms; let i=index;" routerLink="/roomDetail/{{room._id}}" routerLinkActive="router-link-active">
+    <tr *ngFor="let room of rooms; let i=index;" [routerLink]="['/roomDetail', room._id]">
       <td>{{i + 1}}</td>
       <td>{{room._id}}</td>
       <td>{{room.roomNo}}</td>
-      <td>{{rooms[0].assets.length}}</td>
+      <td>{{rooms[0]['assets'].length}}</td>
       <td>{{room.buildingName}}</td>
       <td>{{buildingInfo.state}}</td>
       <td>{{buildingInfo.city}}</td>

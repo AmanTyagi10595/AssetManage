@@ -1,3 +1,8 @@
+<button type="button" class="btn btn-primary" (click)="openModal()">Add building</button>
+<span class=building>Buildings</span>
+<div *ngIf="show">
+  <dashboard-modal [dialog]="show" (toggle)="onToggleClicked($event)"></dashboard-modal>
+</div>
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
@@ -11,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let building of buildings; let i=index" routerLink="/buildingDetail/{{building._id}}">
+    <tr *ngFor="let building of buildings; let i=index" [routerLink]="['/building', building._id]">
       <td>{{i + (indexStart)}}</td>
       <td>{{building.name}}</td>
       <td>{{building.state}}</td>
