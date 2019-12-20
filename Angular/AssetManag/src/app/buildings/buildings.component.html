@@ -9,10 +9,13 @@
       <th>State</th>
       <th>City</th>
       <th>Phone</th>
+      <th>Detailes</th>
+      <th>Update</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let room of rooms; let i=index;" [routerLink]="['/roomDetail', room._id]">
+    <tr *ngFor="let room of rooms; let i=index;">
       <td>{{i + 1}}</td>
       <td>{{room._id}}</td>
       <td>{{room.roomNo}}</td>
@@ -21,6 +24,9 @@
       <td>{{buildingInfo.state}}</td>
       <td>{{buildingInfo.city}}</td>
       <td>{{buildingInfo.phone}}</td>
+      <td><i class="fa fa-info-circle" aria-hidden="true" [routerLink]="['/roomDetail', room._id]"></i></td>
+      <td><i class="fa fa-pencil" aria-hidden="true"></i></td>
+      <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
     </tr>
   </tbody>
 </table>

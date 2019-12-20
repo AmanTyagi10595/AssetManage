@@ -1,29 +1,39 @@
 <button type="button" class="btn btn-primary" (click)="openModal()">Add building</button>
-<span class=building>Buildings</span>
-<div *ngIf="show">
+<!-- <div *ngIf="show">
   <dashboard-modal [dialog]="show" (toggle)="onToggleClicked($event)"></dashboard-modal>
+</div> -->
+<div *ngIf="show == true">
+  <dashboard-modal></dashboard-modal>
 </div>
-<table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th>Sno.</th>
-      <th>Name</th>
-      <th>State</th>
-      <th>City</th>
-      <th>Phone</th>
-      <th>Rooms count</th>
-      <th>Assets count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let building of buildings; let i=index" [routerLink]="['/building', building._id]">
-      <td>{{i + (indexStart)}}</td>
-      <td>{{building.name}}</td>
-      <td>{{building.state}}</td>
-      <td>{{building.city}}</td>
-      <td>{{building.phone}}</td>
-      <td>{{building.rooms.length}}</td>
-      <td>{{building.assets.length}}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="show == false">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Sno.</th>
+        <th>Name</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Phone</th>
+        <th>Rooms count</th>
+        <th>Assets count</th>
+        <th>Detailes</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let building of buildings; let i=index">
+        <td>{{i + (indexStart)}}</td>
+        <td>{{building.name}}</td>
+        <td>{{building.state}}</td>
+        <td>{{building.city}}</td>
+        <td>{{building.phone}}</td>
+        <td>{{building.rooms.length}}</td>
+        <td>{{building.assets.length}}</td>
+        <td><i class="fa fa-info-circle" aria-hidden="true" [routerLink]="['/building', building._id]"></i></td>
+        <td><i class="fa fa-pencil" aria-hidden="true"></i></td>
+        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

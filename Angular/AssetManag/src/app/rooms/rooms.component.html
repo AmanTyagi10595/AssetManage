@@ -7,16 +7,28 @@
       <th>AssignedTo</th>
       <th>Address</th>
       <th>Status</th>
+      <th>Detailes</th>
+      <th>Update</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let asset of assets; let i=index" [routerLink]='["/assetsDetail"]'>
+    <tr *ngFor="let asset of assets; let i=index">
       <td>{{i + (indexStart)}}</td>
       <td>{{asset._id.substr(asset._id.length - 6)  }}</td>
       <td>{{asset.assetName}}</td>
       <td>{{asset.assignedTo[0]?.userId}}</td>
-      <td>{{asset.building[0]?.buildingName}}_{{asset.room[0]?.roomNname}}</td>
-      <td *ngIf="asset.inUse">In Use</td>
+      <td>{{asset.building[0]?.buildingName}}{{asset.room[0]?.roomNname}}</td>
+      <td *ngIf="asset.inUse;then content else other_content">In Use</td>
+      <ng-template #content>
+        <td>Yes</td>
+      </ng-template>
+      <ng-template #other_content>
+        <td>No</td>
+      </ng-template>
+      <td><i class="fa fa-info-circle" aria-hidden="true" [routerLink]='["/assetsDetail"]'></i></td>
+      <td><i class="fa fa-pencil" aria-hidden="true"></i></td>
+      <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
     </tr>
   </tbody>
 </table>

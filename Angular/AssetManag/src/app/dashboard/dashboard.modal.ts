@@ -1,30 +1,30 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSliderModule } from "@angular/material/slider";
+import { FormBuilder } from "@angular/forms";
 @Component({
   selector: "dashboard-modal",
-  template: `
-    <div [ngClass]="{ overlay: dialog }" (click)="onOverlayClicked($event)">
-      <div [ngClass]="{ dialog: dialog }" (click)="dialogClicked($event)">
-        <div>
-          <h1>Hello world</h1>
-        </div>
-      </div>
-    </div>
-  `,
+  templateUrl: "./addBuilding.html",
   styleUrls: ["./dashboard.component.css"]
 })
 export class DashBoardModal {
-  @Input("dialog") dialog;
-  @Output("toggle") toggle = new EventEmitter(null);
-
-  onOverlayClicked(e) {
-    e.stopPropagation();
-    this.dialog = false;
-    this.toggle.emit(this.dialog);
-  }
-
-  dialogClicked(e) {
-    e.stopPropagation();
-    return false;
-  }
+  profileForm = this.fb.group({
+    street: [""],
+    city: [""],
+    state: [""],
+    noOfRooms: [""],
+    noOfAssets: [""]
+  });
+  constructor(private fb: FormBuilder) {}
+  // @Input("dialog") dialog;
+  // @Output("toggle") toggle = new EventEmitter(null);
+  // onOverlayClicked(e) {
+  //   e.stopPropagation();
+  //   this.dialog = false;
+  //   this.toggle.emit(this.dialog);
+  // }
+  // dialogClicked(e) {
+  //   e.stopPropagation();
+  //   return false;
+  // }
 }

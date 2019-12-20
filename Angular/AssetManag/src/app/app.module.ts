@@ -7,6 +7,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatSliderModule } from "@angular/material/slider";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -15,7 +18,15 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
     DashboardComponent,
     DashBoardModal
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatFormFieldModule
+  ],
+  exports: [MatSliderModule, MatFormFieldModule],
   entryComponents: [],
   providers: [],
   bootstrap: [AppComponent]
