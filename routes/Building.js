@@ -11,7 +11,7 @@ router.get('/:id', buildingController.getSingleBuilding);
 router.post('/add', buildingController.addBuilding);
 
 // Delete Building
-router.delete('/delete', buildingController.deleteBuilding);
+router.delete('/delete/:buildingId', buildingController.deleteBuilding);
 
 // Update Building
 router.patch('/update', buildingController.updateBuilding);

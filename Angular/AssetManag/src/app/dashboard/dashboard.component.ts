@@ -31,4 +31,10 @@ export class DashboardComponent implements OnInit {
   onToggleClicked(e) {
     this.show = e;
   }
+
+  onDelete(buildingId) {
+    this.service.deleteBuilding(buildingId).subscribe(arg => {
+      console.log("delete  building");
+    });
+  }
 }

@@ -48,7 +48,8 @@ module.exports = {
     },
     // Delete Building
     deleteBuilding: (req, res, next) => {
-        Building.findOneAndRemove({ "_id": req.body.id }).then((data) => {
+        console.log("delete building", req.params);
+        Building.findOneAndRemove({ "_id": req.params.buildingId }).then((data) => {
             res.status(200).send({ status: "success", msg: data });
         }).catch((e) => {
             next(new Error(400, e.message));

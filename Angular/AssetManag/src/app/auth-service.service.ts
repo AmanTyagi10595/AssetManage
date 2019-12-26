@@ -26,9 +26,14 @@ export class AuthServiceService {
   }
   addBuilding(data) {
     return this.http.post(
-      `http://localhost:4000/building/add`,
+      `htd by Access-Control-Allow-Mettp://localhost:4000/building/add`,
       data,
       httpOptions
+    );
+  }
+  deleteBuilding(buildingId) {
+    return this.http.delete(
+      `http://localhost:4000/building/delete/${buildingId}`
     );
   }
 }

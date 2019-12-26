@@ -32,7 +32,7 @@
         <td>{{building.assets.length}}</td>
         <td><i class="fa fa-info-circle" aria-hidden="true" [routerLink]="['/building', building._id]"></i></td>
         <td><i class="fa fa-pencil" aria-hidden="true"></i></td>
-        <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+        <td><i class="fa fa-trash-o" aria-hidden="true" (click)=onDelete(building._id)></i></td>
       </tr>
     </tbody>
   </table>
