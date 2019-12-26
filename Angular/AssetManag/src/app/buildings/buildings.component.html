@@ -19,11 +19,11 @@
       <td>{{i + 1}}</td>
       <td>{{room._id}}</td>
       <td>{{room.roomNo}}</td>
-      <td>{{rooms[0]['assets'].length}}</td>
-      <td>{{room.buildingName}}</td>
-      <td>{{buildingInfo.state}}</td>
-      <td>{{buildingInfo.city}}</td>
-      <td>{{buildingInfo.phone}}</td>
+      <td>{{rooms[0]['assets']['length']}}</td>
+      <td>{{room['buildingName']}}</td>
+      <td>{{buildingInfo['state']}}</td>
+      <td>{{buildingInfo['city']}}</td>
+      <td>{{buildingInfo['phone']}}</td>
       <td><i class="fa fa-info-circle" aria-hidden="true" [routerLink]="['/roomDetail', room._id]"></i></td>
       <td><i class="fa fa-pencil" aria-hidden="true"></i></td>
       <td><i class="fa fa-trash-o" aria-hidden="true"></i></td>

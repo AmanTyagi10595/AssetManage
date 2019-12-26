@@ -19,9 +19,7 @@ export class BuildingsComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id");
-    console.log(this.id);
     this.service.getSingleBuilding(this.id).subscribe(data => {
-      // console.log(data);
       this.buildingInfo = data["msg"];
     });
     this.roomsOfOneBuilding(this.id);
@@ -29,8 +27,6 @@ export class BuildingsComponent implements OnInit {
   roomsOfOneBuilding(id) {
     this.service.getRooms(id).subscribe(data => {
       this.rooms = data["msg"];
-      // console.log("rooms are ", this.rooms);
-      console.log("Building Info", this.buildingInfo);
     });
   }
 }

@@ -10,6 +10,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     HttpClientModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [MatSliderModule, MatFormFieldModule],
   entryComponents: [],

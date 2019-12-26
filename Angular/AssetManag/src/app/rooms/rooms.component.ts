@@ -24,7 +24,6 @@ export class RoomsComponent implements OnInit {
   assetsOfRoom(roomId) {
     this.service.getAssets(roomId).subscribe(result => {
       this.assets = result["msg"];
-      console.log("room component.ts2", this.assets);
     });
   }
 }

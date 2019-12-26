@@ -93,17 +93,8 @@ input[type="submit"]:hover {
 }
 
 .paper {
-  /* background-color: #fff; */
   position: relative;
-  /* padding: 30px; */
-  /* margin: 1rem auto; */
 }
-
-/* .paper,
-.paper::before,
-.paper::after {
-  box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.15);
-} */
 
 .paper::before,
 .paper::after {
@@ -124,4 +115,18 @@ input[type="submit"]:hover {
   left: 12px;
   top: 10px;
   z-index: -2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.row input {
+  /* max-width: 32%; */
+  /* margin: 10px; */
+}
+.formcontainer {
+  max-width: 640px;
 }

@@ -25,11 +25,11 @@ const BuildingSchema = new Schema({
         required: [true, 'Building name is required']
     },
     rooms: [{
-        id: Number
+        noOfRooms: Number
     }],
-    assets: [{
-        id: Number
-    }],
+    assets: [
+        Number
+    ],
     state: {
         type: String
     },

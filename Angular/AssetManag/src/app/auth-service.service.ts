@@ -24,4 +24,11 @@ export class AuthServiceService {
   getAssets(roomID) {
     return this.http.get(`http://localhost:4000/asset/assetsOfRoom/${roomID}`);
   }
+  addBuilding(data) {
+    return this.http.post(
+      `http://localhost:4000/building/add`,
+      data,
+      httpOptions
+    );
+  }
 }

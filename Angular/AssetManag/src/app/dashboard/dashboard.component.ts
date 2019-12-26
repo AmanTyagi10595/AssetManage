@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   getBuildings() {
     this.service.getBuildings().subscribe(data => {
       this.buildings = data;
+      console.log(this.buildings);
     });
   }
 

@@ -28,7 +28,7 @@
         <td>{{building.state}}</td>
         <td>{{building.city}}</td>
         <td>{{building.phone}}</td>
-        <td>{{building.rooms.length}}</td>
+        <td>{{building['rooms']['length']}}</td>
         <td>{{building.assets.length}}</td>
         <td><i class="fa fa-info-circle" aria-hidden="true" [routerLink]="['/building', building._id]"></i></td>
         <td><i class="fa fa-pencil" aria-hidden="true"></i></td>

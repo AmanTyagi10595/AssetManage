@@ -1,28 +1,57 @@
-<div formGroupName="profileForm">
-  <h3>Address</h3>
+<form class="container formcontainer" [formGroup]="profileForm">
+  <h3>Building</h3>
+  <div class="row">
+    <label class="col-25">
+      Name:
+    </label>
+    <input class="col-75" type="text" formControlName="name">
+  </div>
+  <div class="row">
+    <label class="col-25">
+      State:
+    </label>
+    <input class="col-75" type="text" formControlName="city">
+  </div>
+  <div class="row">
+    <label class="col-25">
+      City:
+    </label>
+    <input class="col-75" type="text" formControlName="state">
+  </div>
+  <div class="row">
+    <label class="col-25">
+      <button class="col-75" (click)="addRooms()">Add Rooms</button>
+    </label>
+  </div>
+  <div formArrayName="noOfRooms" *ngFor="let room of profileForm.controls.noOfRooms?.value; let i = index">
+    <div>
+      <div [formGroupName]="i">
+        <input type="string" formControlName="noOfRooms">
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="row">
 
-  <label>
-    Name:
-    <input type="text" formControlName="street">
-  </label>
+      <!-- <input class="col-75" type="number" formControlName="noOfAssets"> -->
+      <div formArrayName="noOfAssets">
+        <!-- <label class="col-25">
+          Assets:
+        </label> -->
+        <button (click)="addnoOfAssets()">Add Alias</button>
 
-  <label>
-    State:
-    <input type="text" formControlName="city">
-  </label>
-
-  <label>
-    City:
-    <input type="text" formControlName="state">
-  </label>
-
-  <label>
-    Rooms:
-    <input type="number" formControlName="noOfRooms">
-  </label>
-
-  <label>
-    Assets:
-    <input type="number" formControlName="noOfAssets">
-  </label>
-</div>
+        <div *ngFor="let address of noOfAssets.controls; let i=index">
+          <!-- The repeated alias template -->
+          <label class="col-27">
+            <input type="text" [formControlName]="i">
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <label>
+        <button (click)="onSubmit()" type="submit" [disabled]="profileForm.invalid">Submit</button>
+      </label>
+    </div>
+  </div>
+</form>
