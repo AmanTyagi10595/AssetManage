@@ -9,6 +9,22 @@ const httpOptions = {
 })
 export class AuthServiceService {
   constructor(private http: HttpClient) {}
+
+  signUp(data) {
+    return this.http.post(
+      `http://localhost:4000/common/signup`,
+      data,
+      httpOptions
+    );
+  }
+
+  login(data) {
+    return this.http.post(
+      `http://localhost:4000/common/login`,
+      data,
+      httpOptions
+    );
+  }
   getBuildings() {
     return this.http.get("http://localhost:4000/building");
   }

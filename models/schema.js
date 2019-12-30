@@ -17,7 +17,24 @@ const NinjaSchema = new Schema({
         default: false
     }
 });
+//schema for User data(Signup)
+const UserSchema = new Schema({
 
+    userName: {
+        type: String
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: Number
+    }
+});
 //schema to add buildings
 const BuildingSchema = new Schema({
     name: {
@@ -125,8 +142,10 @@ const Ninja = mongoose.model('ninja', NinjaSchema);
 const Building = mongoose.model('Building', BuildingSchema);
 const Room = mongoose.model('Room', RoomSchema);
 const Assets = mongoose.model('Assets', AssetsSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports.Ninja = Ninja;
 module.exports.Building = Building;
 module.exports.Room = Room;
 module.exports.Assets = Assets;
+module.exports.User = User;

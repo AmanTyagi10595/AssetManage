@@ -11,13 +11,15 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { LoginComponent } from "./login/login.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
-    DashBoardModal
+    DashBoardModal,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
