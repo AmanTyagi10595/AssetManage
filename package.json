@@ -21,6 +21,6 @@
     "body-parser": "^1.16.1",
     "cors": "^2.8.5",
     "express": "^4.14.1",
-    "mongoose": "^4.8.4"
+    "mongoose": "^4.13.21"
   }
 }
